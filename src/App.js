@@ -14,9 +14,15 @@ const [todos, setTodos] = useState( [
 )
 
 const addTodo = (description, assigned) => {
+  let rowNumber = 0;
+  if (todos.length > 0 ) {
+    rowNumber = todos[todos.length - 1].rowNumber + 1;
+  } else {
+    rowNumber = 1;
+  }
   if (todos.length > 0) {
     const newTodo = {
-      rowNumber: todos.length + 1, 
+      rowNumber: rowNumber, 
       rowDescription: description,
       rowAssigned: assigned
     };
@@ -25,6 +31,14 @@ const addTodo = (description, assigned) => {
   }
 }
 
+const deleteTodo = (deleteTodoRowNumber) => {
+  let filtered = todos.filter(function (value) {
+    return value.rowNumber !== deleteTodoRowNumber;
+  });
+  setTodos(filtered);
+}
+
+
   return (
     <div className='mt-5 container'>
       <div className="card">
@@ -32,7 +46,7 @@ const addTodo = (description, assigned) => {
           Your Todo's
         </div>
         <div className="card-body">
-        <TodoTable todos={todos}/>
+        <TodoTable todos={todos} deleteTodo={deleteTodo}/>
         {/* <button className='btn btn-primary' onClick={addTodo}>
           Add New todo
           </button> */}

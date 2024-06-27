@@ -46,11 +46,11 @@ function NewTodoForm(props) {
                     value={description}
                     ></textarea>
                 </div>
-                <buutton 
+                <button 
                     type='button' 
                     className='btn btn-primary mt-3' 
                     onClick={submitTodo}
-                >Add Todo</buutton>
+                >Add Todo</button>
 
             </form>
         </div>
