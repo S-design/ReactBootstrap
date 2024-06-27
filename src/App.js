@@ -33,9 +33,9 @@ const addTodo = (description, assigned) => {
         </div>
         <div className="card-body">
         <TodoTable todos={todos}/>
-        <button className='btn btn-primary' onClick={addTodo}>
+        {/* <button className='btn btn-primary' onClick={addTodo}>
           Add New todo
-          </button>
+          </button> */}
           <NewTodoForm addTodo={addTodo}/>
         </div>
       </div>
